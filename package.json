@@ -1,0 +1,18 @@
+{
+  "name": "chromecache",
+  "version": "1.0.0",
+  "description": "Keeps the cache of a chrome browser up to date",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromium": "^3.0.3",
+    "cron": "^1.8.2",
+    "dotenv": "^16.3.1",
+    "puppeteer": "^15.5.0"
+  }
+}
