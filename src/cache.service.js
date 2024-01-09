@@ -12,6 +12,7 @@ class CacheService {
 		} else {
 			this.path = path.join(__dirname, "../osCache");
 		}
+		console.log(this.path);
 	}
 	get browserInstance() {
 		return this.instance;
