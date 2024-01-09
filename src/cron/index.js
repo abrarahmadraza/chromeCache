@@ -1,5 +1,5 @@
-const cacheCronCron = require('./cacheCron');
+const cacheCronCron = require("./cacheCron");
 
-module.exports= {
-    cacheCronCron
-}
+module.exports = {
+	cacheCronCron,
+};
