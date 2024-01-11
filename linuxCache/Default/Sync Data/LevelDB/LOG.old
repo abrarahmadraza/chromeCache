@@ -1,3 +1,2 @@
-2024/01/10-01:44:00.619 2037 Reusing MANIFEST /home/katil/Desktop/chromeCache/linuxCache/Default/Sync Data/LevelDB/MANIFEST-000001
-2024/01/10-01:44:00.620 2037 Recovering log #3
-2024/01/10-01:44:00.620 2037 Reusing old log /home/katil/Desktop/chromeCache/linuxCache/Default/Sync Data/LevelDB/000003.log 
+2024/01/11-13:44:01.981 7b4 Creating DB /home/katil/Desktop/chromeCache/linuxCache/Default/Sync Data/LevelDB since it was missing.
+2024/01/11-13:44:01.993 7b4 Reusing MANIFEST /home/katil/Desktop/chromeCache/linuxCache/Default/Sync Data/LevelDB/MANIFEST-000001
