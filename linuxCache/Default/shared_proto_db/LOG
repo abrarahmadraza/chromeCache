@@ -1,3 +1,2 @@
-2024/01/11-13:46:00.650 8e7 Reusing MANIFEST /home/katil/Desktop/chromeCache/linuxCache/Default/shared_proto_db/MANIFEST-000001
-2024/01/11-13:46:00.650 8e7 Recovering log #3
-2024/01/11-13:46:00.650 8e7 Reusing old log /home/katil/Desktop/chromeCache/linuxCache/Default/shared_proto_db/000003.log 
+2024/01/16-15:57:02.998 75d Creating DB /home/katil/Desktop/chromeCache/linuxCache/Default/shared_proto_db since it was missing.
+2024/01/16-15:57:03.010 75d Reusing MANIFEST /home/katil/Desktop/chromeCache/linuxCache/Default/shared_proto_db/MANIFEST-000001
