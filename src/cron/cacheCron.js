@@ -5,7 +5,10 @@ const execCommand = require("../shell");
 const TAG = "CACHE_CRON";
 const cacheCron = new CronJob(
 	"*/1 * * * *",
-	() => startCron(),
+	() => {
+		const cache = new CacheService();
+		cache.refresh();
+		startCron()},
 	null,
 	true,
 	"Asia/Calcutta"
