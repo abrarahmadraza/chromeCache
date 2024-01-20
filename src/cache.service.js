@@ -39,12 +39,12 @@ class CacheService {
 		} catch (error) {
 			throw new Error("Error in chromium page creation", error);
 		} finally {
-			if (page) {
-				await page.close();
-			}
-			if (this.instance) {
-				await this.instance.close();
-			}
+			//if (page) {
+			//	await page.close();
+			//}
+			//if (this.instance) {
+			//	await this.instance.close();
+			//}
 		}
 	}
 }
