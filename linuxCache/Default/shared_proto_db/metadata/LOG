@@ -1,2 +1,3 @@
-2024/02/12-18:42:04.905 613a Creating DB /home/katil/Desktop/chromeCache/linuxCache/Default/shared_proto_db/metadata since it was missing.
-2024/02/12-18:42:04.946 613a Reusing MANIFEST /home/katil/Desktop/chromeCache/linuxCache/Default/shared_proto_db/metadata/MANIFEST-000001
+2024/02/12-18:57:46.327 8928 Reusing MANIFEST /home/katil/Desktop/chromeCache/linuxCache/Default/shared_proto_db/metadata/MANIFEST-000001
+2024/02/12-18:57:46.327 8928 Recovering log #3
+2024/02/12-18:57:46.327 8928 Reusing old log /home/katil/Desktop/chromeCache/linuxCache/Default/shared_proto_db/metadata/000003.log 
