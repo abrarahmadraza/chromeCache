@@ -1,3 +1,4 @@
+const CacheService = require("./src/cache.service");
 const { serviceConfig } = require("./src/configs");
 
 async function updateCache() {
@@ -10,6 +11,10 @@ async function updateCache() {
 		}
 	} catch (error) {
 		console.log(error);
+	}
+	finally{
+		const cache = new CacheService();
+		await cache.refresh();
 	}
 }
 
