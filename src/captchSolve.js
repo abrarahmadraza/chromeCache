@@ -4,7 +4,7 @@ const axios = require('axios');
 const createTask = async (base64Data) => {
     const url = 'https://api.capmonster.cloud/createTask';
     const response = await axios.post(url, {
-        clientKey: 'ebfd2b68c0aeaf4c0c6c94cc7325a6e2__google',
+        clientKey: process.env.CAPMONSTER_CLIENT_KEY,
         task: {
             type: 'ImageToTextTask',
             body: base64Data,
