@@ -44,6 +44,7 @@ class Navigate {
 					// );
 					await page.click("#identifierNext");
 					try{
+						await page.waitForSelector('img[alt="CAPTCHA image of text used to distinguish humans from robots"]');
 						const imageUrl = await page.evaluate(() => {
 							const img = document.querySelector('img[alt="CAPTCHA image of text used to distinguish humans from robots"]');
 							return img.src;
