@@ -34,9 +34,14 @@ class CacheService {
 				],
 			});
 			const page = await this.instance.newPage();
+			// await page.setUserAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3");
+			const cookies = await page.cookies();
+			console.log('Cookies post-login:', cookies);
+
 			await new Navigate().goToConsole(page);
 			console.log("cache updated");
 		} catch (error) {
+			console.log("Error in chromium page creation", error);
 			throw new Error("Error in chromium page creation", error);
 		} finally {
 			//if (page) {

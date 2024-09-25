@@ -15,16 +15,19 @@ class Navigate {
 			btn = btn && btn[0];
 
 			if (!btn) {
-				await page.waitForNetworkIdle();
-				await page.waitForSelector('input[type="email"]');
+				try{await page.waitForNetworkIdle();
+				await page.waitForSelector('input[type="email"]', { timeout: 3000 });
 				await page.type(
 					'input[type="email"]',
 					"psupdates@classplus.co"
 				);
-				await page.click("#identifierNext");
+				await page.click("#identifierNext");}
+				catch(e){
+					const signIn = await page.waitForSelector('div[data-identifier="psupdates@classplus.co"]');
+					await signIn.click();
+				}
 
-				await page.waitForNavigation();
-				await page.waitForNetworkIdle();
+				await page.waitForNavigation({ waitUntil: "networkidle0" });
 				await page.waitForSelector('input[type="password"]');
 				await page.type(
 					'input[type="password"]',
