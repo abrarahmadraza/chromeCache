@@ -24,8 +24,14 @@ class Navigate {
 				await page.click("#identifierNext");}
 				catch(e){
 					console.log("> Signed out flow");
-					const signIn = await page.waitForSelector('div[data-identifier="psupdates@classplus.co"]');
-					await signIn.click();
+					try{
+						const signIn = await page.waitForSelector('div[data-identifier="psupdates@classplus.co"]');
+						await signIn.click();
+					}
+					catch(e){
+						const btn = await page.waitForSelector('button[type="button"]');
+						await btn.click();
+					}
 				}
 				console.log("Email entered > Password flow");
 				await page.waitForNavigation({ waitUntil: "networkidle0" });
