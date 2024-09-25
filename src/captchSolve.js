@@ -3,6 +3,7 @@ const axios = require('axios');
 
 const createTask = async (base64Data) => {
     const url = 'https://api.capmonster.cloud/createTask';
+    console.log('Creating CAPTCHA solving task', process.env.CAPMONSTER_CLIENT_KEY);
     const response = await axios.post(url, {
         clientKey: process.env.CAPMONSTER_CLIENT_KEY,
         task: {
