@@ -44,8 +44,11 @@ class Navigate {
 					// );
 					await page.click("#identifierNext");
 					try{
-						const captcha = await page.waitForSelector('img[id="captchaimg"]');
-						const imageUrl = await captcha.evaluate((el) => el.src);
+						const imageUrl = await page.evaluate(() => {
+							const img = document.querySelector('img[alt="CAPTCHA image of text used to distinguish humans from robots"]');
+							return img.src;
+						}
+						);
 						console.log("Captcha image url:", imageUrl);
 						const captchaText = await solveCaptcha(imageUrl);
 						const captchaInput = await page.waitForSelector('input[arial-label="Type the text you hear or see"]');
