@@ -54,7 +54,7 @@ class Navigate {
 						await btn.click();
 					}
 					catch(e){
-						console.log("No captcha found");
+						console.log("No captcha found", e);
 					}
 				}
 				catch(e){
