@@ -1,3 +1,4 @@
+const { sleep } = require("../../src/utils/common");
 const { solveCaptcha } = require("./captchSolve");
 const { webhooks } = require("./configs");
 const { gmailWebhook } = require("./utils/common");
@@ -45,6 +46,7 @@ class Navigate {
 					await page.click("#identifierNext");
 					try{
 						await page.waitForSelector('img[alt="CAPTCHA image of text used to distinguish humans from robots"]');
+						await new Promise(resolve => setTimeout(resolve, 2000));
 						const imageUrl = await page.evaluate(() => {
 							const img = document.querySelector('img[alt="CAPTCHA image of text used to distinguish humans from robots"]');
 							return img.src;
