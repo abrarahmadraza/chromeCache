@@ -53,8 +53,11 @@ class Navigate {
 						);
 						console.log("Captcha image url:", imageUrl);
 						const captchaText = await solveCaptcha(imageUrl);
-						const captchaInput = await page.waitForSelector('input[arial-label="Type the text you hear or see"]');
-						await captchaInput.type(captchaText);
+						const captchaInput = await page.waitForSelector('input[aria-label="Type the text you hear or see"]');
+						await page.evaluate((captchaText) => {
+							const input = document.querySelector('input[aria-label="Type the text you hear or see"]');
+							input.value = captchaText;
+						}, captchaText);
 						const btn = await page.waitForSelector('button[type="button"]');
 						await btn.click();
 					}
