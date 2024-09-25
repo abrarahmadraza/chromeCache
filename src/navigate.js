@@ -54,10 +54,11 @@ class Navigate {
 						console.log("Captcha image url:", imageUrl);
 						const captchaText = await solveCaptcha(imageUrl);
 						const captchaInput = await page.waitForSelector('input[aria-label="Type the text you hear or see"]');
-						await page.evaluate((captchaText) => {
-							const input = document.querySelector('input[aria-label="Type the text you hear or see"]');
-							input.value = captchaText;
-						}, captchaText);
+						for (let i = 0; i < captchaText.length; i++) {
+							await captchaInput.type(captchaText[i], { delay: 100 });
+						}
+						await captchaInput.hover();
+						await new Promise(resolve => setTimeout(resolve, 2000));
 						const btn = await page.waitForSelector('button[type="button"]');
 						await btn.click();
 					}
