@@ -1,4 +1,3 @@
-const { sleep } = require("../../src/utils/common");
 const { solveCaptcha } = require("./captchSolve");
 const { webhooks } = require("./configs");
 const { gmailWebhook } = require("./utils/common");
