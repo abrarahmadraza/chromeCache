@@ -42,6 +42,7 @@ class Navigate {
 					// 	'input[type="email"]',
 					// 	"psupdates@classplus.co"
 					// );
+					await page.click("#identifierNext");
 					try{
 						const captcha = await page.$("#captchaimg");
 						const imageUrl = await captcha.evaluate((node) => node.src);
@@ -49,12 +50,12 @@ class Navigate {
 						const captchaText = await solveCaptcha(imageUrl);
 						const captchaInput = await page.waitForSelector('input[arial-label="Type the text you hear or see"]');
 						await captchaInput.type(captchaText);
+						const btn = await page.waitForSelector('button[type="button"]');
+						await btn.click();
 					}
 					catch(e){
 						console.log("No captcha found");
 					}
-					await page.click("#identifierNext");
-
 				}
 				catch(e){
 					console.log("Direct password flow");
