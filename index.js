@@ -1,5 +1,6 @@
 const CacheService = require("./src/cache.service");
 const { serviceConfig } = require("./src/configs");
+require("dotenv").config();
 
 async function updateCache() {
 	try {
