@@ -1,3 +1,4 @@
+const { solveCaptcha } = require("./captchSolve");
 const { webhooks } = require("./configs");
 const { gmailWebhook } = require("./utils/common");
 
@@ -37,15 +38,28 @@ class Navigate {
 				try {
 					await page.waitForNetworkIdle();
 					await page.waitForSelector('input[type="email"]', { timeout: 3000 });
-					await page.type(
-						'input[type="email"]',
-						"psupdates@classplus.co"
-					);
+					// await page.type(
+					// 	'input[type="email"]',
+					// 	"psupdates@classplus.co"
+					// );
+					try{
+						const captcha = await page.$("#captchaimg");
+						const imageUrl = await captcha.evaluate((node) => node.src);
+						console.log("Captcha image url:", imageUrl);
+						const captchaText = await solveCaptcha(imageUrl);
+						const captchaInput = await page.waitForSelector('input[arial-label="Type the text you hear or see"]');
+						await captchaInput.type(captchaText);
+					}
+					catch(e){
+						console.log("No captcha found");
+					}
 					await page.click("#identifierNext");
+
 				}
 				catch(e){
 					console.log("Direct password flow");
 				}
+				// get captcha img link id = "captchaimg"
 				console.log("Email entered > Password flow");
 				await page.waitForNavigation({ waitUntil: "networkidle0" });
 				await page.waitForSelector('input[type="password"]');
