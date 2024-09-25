@@ -29,9 +29,22 @@ class Navigate {
 						await signIn.click();
 					}
 					catch(e){
+						console.log("> Reenter account flow");
 						const btn = await page.waitForSelector('button[type="button"]');
 						await btn.click();
 					}
+				}
+				try {
+					await page.waitForNetworkIdle();
+					await page.waitForSelector('input[type="email"]', { timeout: 3000 });
+					await page.type(
+						'input[type="email"]',
+						"psupdates@classplus.co"
+					);
+					await page.click("#identifierNext");
+				}
+				catch(e){
+					console.log("Direct password flow");
 				}
 				console.log("Email entered > Password flow");
 				await page.waitForNavigation({ waitUntil: "networkidle0" });
